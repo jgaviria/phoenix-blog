@@ -15,10 +15,11 @@ defmodule Pxblog.Router do
 
   scope "/", Pxblog do
     pipe_through :browser # Use the default browser stack
-    resources "/posts", PostController
     get "/", PageController, :index
-    resources "/users", UserController
     resources "/sessions", SessionController, only: [:new, :create, :delete]
+    resources "/users", UserController do
+      resources "/posts", PostController
+    end
   end
 
   # Other scopes may use custom stacks.
