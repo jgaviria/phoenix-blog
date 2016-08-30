@@ -1,8 +1,5 @@
 defmodule Pxblog.LayoutViewTest do
   use Pxblog.ConnCase, async: true
-  defmodule Pxblog.LayoutViewTest do
-    use Pxblog.ConnCase, async: true
-
     alias Pxblog.LayoutView
     alias Pxblog.User
 
@@ -22,7 +19,6 @@ defmodule Pxblog.LayoutViewTest do
       conn = delete conn, session_path(conn, :delete, user)
       refute LayoutView.current_user(conn)
     end
-  end
 
   test "deletes the user session", %{conn: conn} do
     user = Repo.get_by(User, %{username: "test"})
